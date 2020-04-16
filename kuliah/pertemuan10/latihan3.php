@@ -23,7 +23,6 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
         <th>#</th>
         <th>Gambar</th>
         <th>nama </th>
-        >
         <th>aksi</th>
 
     </tr>
