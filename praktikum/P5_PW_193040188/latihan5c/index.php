@@ -1,7 +1,8 @@
+
 <?php 
 
-require 'functions.php'; 
-$mahasiswa = query("SELECT * FROM mahasiswa");
+require 'php/functions.php'; 
+$judul = query("SELECT * FROM Judul_buku");
 
 ?> 
 
@@ -14,8 +15,8 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
     <title>Daftar mahasiswa</title>
 </head>
 <body>
-    <h3>daftar mahasiswa</h3>
-<a href="tambah.php">Tambah data mahasiswa </a>
+    <h3>Judul Buku</h3>
+
 
     <table border= "1" cellpadding="10"cellspacing="0">
 
@@ -23,20 +24,20 @@ $mahasiswa = query("SELECT * FROM mahasiswa");
         <th>#</th>
         <th>Gambar</th>
         <th>nama </th>
-        <th>aksi</th>
+       
 
     </tr>
     <?php $i = 1 ;
-    foreach ($mahasiswa as $m): ?>
+    foreach ($judul as $j): ?>
     <tr>
         <td><?= $i++; ?></td>
-        <td><img src="img/<?php echo $m['gambar'];?>" alt=""></td>
-        <td><?php echo $m['nama'];?></td>
+        <td><img src="asset/img/<?php echo $j['cover_buku'];?>" alt=""></td>
+        <td><?php echo $j['Judul_buku'];?></td>
        
         
         
         <td>
-            <a href="detail.php ?id=<?= $m['id']; ?> ">lihat detail</a>
+            <a href="php/detail.php ?id=<?= $j['id']; ?> ">lihat detail</a>
         </td>
     </tr>
     <?php endforeach; ?>

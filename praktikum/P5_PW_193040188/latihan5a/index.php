@@ -1,11 +1,11 @@
 <?php 
 // conect ke database 
-$conn = mysqli_connect('localhost','root','','phpdasar');
+$conn = mysqli_connect('localhost','root','','buku');
 
 
 // query table
 
-$result = mysqli_query($conn,"SELECT *FROM mahasiswa");
+$result = mysqli_query($conn,"SELECT *FROM judul_buku");
 
 // ubah
 $rows =[];
@@ -13,7 +13,7 @@ while ($row = mysqli_fetch_assoc ($result)){
       $rows[]=$row;
 }
 
-$mahasiswa = $rows
+$judul = $rows
 
 ?> 
 
@@ -33,26 +33,23 @@ $mahasiswa = $rows
 
     <tr>
         <th>#</th>
-        <th>Gambar</th>
-        <th>NRP</th>
-        <th>nama </th>
-        <th>Email</th>
-        <th>jurusan</th>
-        <th>aksi</th>
+        <th>Cover buku</th>
+        <th>Judul_buku</th>
+        <th>Penulis</th>
+        <th>Penerbit</th>
+        <th>Tebal_buku</th>
+       
 
     </tr>
     <?php $i = 1 ;
-    foreach ($mahasiswa as $m): ?>
+    foreach ($judul as $j): ?>
     <tr>
         <td><?= $i++; ?></td>
-        <td><img src="img/<?php echo $m['gambar'];?>" alt=""></td>
-        <td><?php echo $m['nama'];?></td>
-        <td><?php echo $m['nrp'];?></td>
-        <td><?php echo $m['email'];?></td>
-        <td><?php echo $m['jurusan'];?></td>
-        <td>
-            <a href="">ubah</a>|<a href="">hapus</a>
-        </td>
+        <td><img src="asset/img/<?php echo $j['cover_buku'];?>" alt=""></td>
+        <td><?php echo $j['Judul_buku'];?></td>
+        <td><?php echo $j['Penulis'];?></td>
+        <td><?php echo $j['Penerbit'];?></td>
+        <td><?php echo $j['Tebal_buku'];?></td>
     </tr>
     <?php endforeach; ?>
     </table>

@@ -3,7 +3,7 @@ require 'functions.php';
 
 $id  = $_GET['id'];
 
-$m = query("SELECT * FROM mahasiswa WHERE id = $id")
+$m = query ("SELECT * FROM mahasiswa WHERE id = $id")
 ?>
 
 <!DOCTYPE html>
