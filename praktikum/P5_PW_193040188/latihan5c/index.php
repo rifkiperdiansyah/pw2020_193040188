@@ -1,8 +1,14 @@
-
 <?php 
 
-require 'php/functions.php'; 
-$judul = query("SELECT * FROM Judul_buku");
+require 'php/functions.php';
+// conect ke database 
+
+
+
+// query table
+
+$judul_buku = query("SELECT *FROM judul_buku");
+
 
 ?> 
 
@@ -15,32 +21,27 @@ $judul = query("SELECT * FROM Judul_buku");
     <title>Daftar mahasiswa</title>
 </head>
 <body>
-    <h3>Judul Buku</h3>
+    <h3>JUDUL BUKU</h3>
 
-
+<div class="conrainer">
     <table border= "1" cellpadding="10"cellspacing="0">
 
-    <tr>
-        <th>#</th>
-        <th>Gambar</th>
-        <th>nama </th>
+   
        
 
     </tr>
-    <?php $i = 1 ;
-    foreach ($judul as $j): ?>
-    <tr>
-        <td><?= $i++; ?></td>
-        <td><img src="asset/img/<?php echo $j['cover_buku'];?>" alt=""></td>
-        <td><?php echo $j['Judul_buku'];?></td>
-       
-        
-        
-        <td>
-            <a href="php/detail.php ?id=<?= $j['id']; ?> ">lihat detail</a>
-        </td>
-    </tr>
+    <div class="container">
+    <?php foreach ($judul_buku as $j): ?>
+    <p class="nama">
+       <a href="php/detail.php ?id=<?= $j['id']?>">
+       <?= $j['Judul_buku']?>
+       </a>
+    </p>
+    
+   
     <?php endforeach; ?>
+    </div>
     </table>
+    </div>
 </body>
 </html>

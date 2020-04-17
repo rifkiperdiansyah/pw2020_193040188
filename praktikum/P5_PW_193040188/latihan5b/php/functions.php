@@ -1,18 +1,19 @@
 <?php 
 function koneksi()
 {
-   return  mysqli_connect('localhost','root','','buku');
+$conn =  mysqli_connect('localhost','root','',)or die ("koneksi ke Db gagal");
+mysqli_select_db($conn, "buku") or die ("database salah");
  
+return $conn;
+
+
 }
-function query($query)
+function query($sql)
 {
     $conn = koneksi();
-    $result = mysqli_query($conn,$query);
+    $result = mysqli_query($conn,"$sql");
     
-    if(mysqli_num_rows($result)== 1){
-        return mysqli_fetch_assoc($result);
-    }
-    $rows =[];
+    $rows =[];  
 while ($row = mysqli_fetch_assoc ($result)){
       $rows[]=$row;
 }

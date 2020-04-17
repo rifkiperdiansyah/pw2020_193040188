@@ -1,6 +1,6 @@
 <?php 
 if(!isset ($_GET['id'])){
-    header ("location: ../php/index.php");
+    header ("location: ../index.php");
     exit;
 }
 
@@ -8,7 +8,7 @@ require 'functions.php ';
 
 $id = $_GET ['id'];
 
-$judul = query ("SELECT *FROM judul_buku WHERE id = $id" )[0];
+$judul_buku = query ("SELECT *FROM judul_buku WHERE id = $id" )[0];
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +33,6 @@ $judul = query ("SELECT *FROM judul_buku WHERE id = $id" )[0];
   
     </div>
 
-    <button class="kembali">back</button>
+    <button class="kembali"><a href=" ../index.php">back</a> </button>
 </body>
 </html>

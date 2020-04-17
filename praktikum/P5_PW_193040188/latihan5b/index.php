@@ -1,20 +1,14 @@
 <?php 
+
 require 'php/functions.php';
 // conect ke database 
-$conn = mysqli_connect('localhost','root','','buku');
+
 
 
 // query table
 
-$result = mysqli_query($conn,"SELECT *FROM judul_buku");
+$judul_buku = query("SELECT *FROM judul_buku");
 
-// ubah
-$rows =[];
-while ($row = mysqli_fetch_assoc ($result)){
-      $rows[]=$row;
-}
-
-$judul = $rows
 
 ?> 
 
@@ -24,12 +18,12 @@ $judul = $rows
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JUDUL BUKU</title>
+    <title>Daftar mahasiswa</title>
 </head>
 <body>
-    <h3>JUDUL BUKU</h3>
+    <h3>daftar mahasiswa</h3>
 
-
+<div class="conrainer">
     <table border= "1" cellpadding="10"cellspacing="0">
 
     <tr>
@@ -42,17 +36,19 @@ $judul = $rows
        
 
     </tr>
-    <?php $i = 1 ;
-    foreach ($judul as $j): ?>
+    <?php $i = 1 ; ?>
+    <?php foreach ($judul_buku as $j): ?>
     <tr>
-        <td><?= $i++; ?></td>
+        <td><?= $i ?></td>
         <td><img src="asset/img/<?php echo $j['cover_buku'];?>" alt=""></td>
         <td><?php echo $j['Judul_buku'];?></td>
         <td><?php echo $j['Penulis'];?></td>
         <td><?php echo $j['Penerbit'];?></td>
         <td><?php echo $j['Tebal_buku'];?></td>
     </tr>
+    <?php  $i++ ?>
     <?php endforeach; ?>
     </table>
+    </div>
 </body>
 </html>

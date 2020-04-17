@@ -7,13 +7,6 @@ $conn = mysqli_connect('localhost','root','','buku');
 
 $result = mysqli_query($conn,"SELECT *FROM judul_buku");
 
-// ubah
-$rows =[];
-while ($row = mysqli_fetch_assoc ($result)){
-      $rows[]=$row;
-}
-
-$judul = $rows
 
 ?> 
 
@@ -28,7 +21,7 @@ $judul = $rows
 <body>
     <h3>daftar mahasiswa</h3>
 
-
+<div class="conrainer">
     <table border= "1" cellpadding="10"cellspacing="0">
 
     <tr>
@@ -41,17 +34,19 @@ $judul = $rows
        
 
     </tr>
-    <?php $i = 1 ;
-    foreach ($judul as $j): ?>
+    <?php $i = 1 ; ?>
+    <?php while ($row = mysqli_fetch_assoc($result)): ?>
     <tr>
-        <td><?= $i++; ?></td>
-        <td><img src="asset/img/<?php echo $j['cover_buku'];?>" alt=""></td>
-        <td><?php echo $j['Judul_buku'];?></td>
-        <td><?php echo $j['Penulis'];?></td>
-        <td><?php echo $j['Penerbit'];?></td>
-        <td><?php echo $j['Tebal_buku'];?></td>
+        <td><?= $i ?></td>
+        <td><img src="asset/img/<?php echo $row['cover_buku'];?>" alt=""></td>
+        <td><?php echo $row['Judul_buku'];?></td>
+        <td><?php echo $row['Penulis'];?></td>
+        <td><?php echo $row['Penerbit'];?></td>
+        <td><?php echo $row['Tebal_buku'];?></td>
     </tr>
-    <?php endforeach; ?>
+    <?php  $i++ ?>
+    <?php endwhile; ?>
     </table>
+    </div>
 </body>
 </html>
