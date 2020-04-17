@@ -21,15 +21,15 @@ $judul_buku = query ("SELECT *FROM judul_buku WHERE id = $id" )[0];
 </head>
 <body>
     <div class="container">
-    <img src="../asset/img/<?= $j['cover_buku']; ?>" alt="">
+    <img src="../asset/img/<?= $judul_buku['cover_buku']; ?>" alt="">
     </div>
 
     <div class="keterangan">
 
-    <p><?= $j['Judul_buku']; ?> ?></p>
-    <p><?= $j['Penulis']; ?> ?></p>
-    <p><?= $j['Penerbit']; ?> ?></p>
-    <p><?= $j['Tebal_buku']; ?> ?></p>
+    <p><?= $judul_buku['Judul_buku']; ?></p>
+    <p><?= $judul_buku['Penulis']; ?></p>
+    <p><?= $judul_buku['Penerbit']; ?></p>
+    <p><?= $judul_buku['Tebal_buku']; ?></p>
   
     </div>
 

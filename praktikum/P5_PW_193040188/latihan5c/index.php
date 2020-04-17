@@ -33,7 +33,7 @@ $judul_buku = query("SELECT *FROM judul_buku");
     <div class="container">
     <?php foreach ($judul_buku as $j): ?>
     <p class="nama">
-       <a href="php/detail.php ?id=<?= $j['id']?>">
+       <a href="php/detail.php ?id=<?= $j['ID']?>">
        <?= $j['Judul_buku']?>
        </a>
     </p>
