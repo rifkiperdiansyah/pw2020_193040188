@@ -1,0 +1,11 @@
+.container {
+background-color: yellowgreen;
+padding:10px 10px 10px 10px;
+margin-right: 1400px;
+}
+
+.keterangan{
+color: black;
+text-shadow: 5px 1px 10px rgba(1, 1, 1, 1);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
