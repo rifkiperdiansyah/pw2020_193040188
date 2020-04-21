@@ -3,7 +3,7 @@ require 'functions.php';
 
 $id  = $_GET['id'];
 
-$m = query ("SELECT * FROM mahasiswa WHERE id = $id")
+$mahasiswa = query ("SELECT * FROM mahasiswa WHERE id = $id")
 ?>
 
 <!DOCTYPE html>
@@ -18,11 +18,11 @@ $m = query ("SELECT * FROM mahasiswa WHERE id = $id")
     <h3>Detail mahasiswa</h3>
 
     <ul>
-        <li><img src="img/<?= $m['gambar']; ?>" alt=""></li>
-        <li><?= $m['nrp']; ?></li>
-        <li><?= $m['nama']; ?></li>
-        <li><?= $m['email']; ?></li>
-        <li><?= $m['jurusan']; ?></li>
+        <li><img src="img/<?= $mahasiswa ['gambar']; ?>" alt=""></li>
+        <li><?= $mahasiswa ['nrp']; ?></li>
+        <li><?= $mahasiswa ['nama']; ?></li>
+        <li><?= $mahasiswa ['email']; ?></li>
+        <li><?= $mahasiswa ['jurusan']; ?></li>
 <li><a href="">Ubah</a>|<a href="">Hapus</a></li>
 <li><a href="latihan3.php">Kembali ke daftar mahasiswa</a></li>
     </ul>

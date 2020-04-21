@@ -3,7 +3,15 @@ require 'functions.php';
 
 
 if(isset($_POST['tambah'])){
-    
+   if( tambah($_POST)> 0 ){
+            echo "<script>
+            alert('data brhasil di tambahkan');
+            document.location.href = 'latihan3.php';
+            </script>";
+   }
+   else{
+       echo "data gagal di tambahkan";
+   }
 }
 
 ?>
@@ -24,31 +32,31 @@ if(isset($_POST['tambah'])){
         <li>
         <label>
         Nama:
-            <input type="text" name="nama" autofocus>
+            <input type="text" name="nama" autofocus required>
         </label>
         </li>
         <li>
         <label>
             Nrp:
-            <input type="text" name="nrp">
+            <input type="text" name="nrp" required>
         </label>
         </li>
         <li>
         <label>
             E-mail:
-            <input type="text" name="email">
+            <input type="text" name="email"required>
         </label>
         </li>
         <li>
         <label>
             Jurusan:
-            <input type="text" name="jurusan">
+            <input type="text" name="jurusan" required>
         </label>
         </li>
         <li>
         <label>
             gambar:
-            <input type="text" name="gambar">
+            <input type="text" name="gambar" required>
         </label>
         </li>
         <li>
