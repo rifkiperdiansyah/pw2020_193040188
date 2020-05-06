@@ -50,7 +50,7 @@ $judul_buku = query("SELECT *FROM judul_buku");
     </table>
     </div>
 
-    <button> <a href="php/admin.php">admin</a></button>
+    <a href="php/login.php"><button> masuk ke halaman admin</button></a>
 
 </body>
 </html>

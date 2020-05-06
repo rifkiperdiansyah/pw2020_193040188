@@ -1,8 +1,17 @@
 <?php 
 require 'functions.php';
+if (isset ($_GET['cari'])){
+    $keyword = $_GET['keyword'];
+    $buku = query("SELECT * FROM judul_buku WHERE
+            Judul_buku LIKE '%$keyword%'OR
+            Penulis LIKE '%$keyword%'OR
+            Penerbit LIKE '%$keyword%'OR
+            Tebal_buku LIKE '%$keyword%' ");
+}else{
+    $judul_buku = query("SELECT *FROM judul_buku");
+}
 
 
-$buku = query("SELECT *FROM buku");
 ?>
 
 
@@ -18,6 +27,13 @@ $buku = query("SELECT *FROM buku");
 <body>
     <h3>Judul buku</h3>
 
+    <form action="" method="get">
+        <input type="text" name="keyword" autofocus>
+        <button type="submit" name="cari">cari</button>
+    </form>
+    
+
+    <div class="add"><a href="tambah.php"> tambah data</a> </div>
 <div class="conrainer">
     <table border= "1" cellpadding="10"cellspacing="0">
 
@@ -33,12 +49,12 @@ $buku = query("SELECT *FROM buku");
 
     </tr>
     <?php $i = 1 ; ?>
-    <?php foreach ($buku as $b): ?>
+    <?php foreach ($judul_buku as $b): ?>
     <tr>
         <td><?= $i ?></td>
         <td> 
-            <a href="">Ubah</a>
-            <a href="">Hapus</a>
+            <a href="ubah.php?id=<?= $b['ID']?>">Ubah</a>
+            <a href="hapus.php?id=<? $b['ID']?>"onclick="return confirm ('hapus data??')">Hapus</a>
         </td>
         <td><img src="../asset/img/<?php echo $b['cover_buku'];?>" alt=""></td>
         <td><?php echo $b['Judul_buku'];?></td>
@@ -46,9 +62,13 @@ $buku = query("SELECT *FROM buku");
         <td><?php echo $b['Penerbit'];?></td>
         <td><?php echo $b['Tebal_buku'];?></td>
     </tr>
-    <?php  $i++; ?>
+    <?php  $i++ ?>
     <?php endforeach; ?>
     </table>
+    </div>
+
+    <div class="logout">
+        <a href="logout.php">logout</a>
     </div>
 </body>
 </html>

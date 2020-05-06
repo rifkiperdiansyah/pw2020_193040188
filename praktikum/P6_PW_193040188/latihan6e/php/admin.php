@@ -2,13 +2,13 @@
 require 'functions.php';
 if (isset ($_GET['cari'])){
     $keyword = $_GET['keyword'];
-    $buku = query("SELECT * FROM buku WHERE
+    $buku = query("SELECT * FROM judul_buku WHERE
             Judul_buku LIKE '%$keyword%'OR
             Penulis LIKE '%$keyword%'OR
             Penerbit LIKE '%$keyword%'OR
             Tebal_buku LIKE '%$keyword%' ");
 }else{
-    $buku = query("SELECT *FROM buku");
+    $judul_buku = query("SELECT *FROM judul_buku");
 }
 
 
@@ -49,14 +49,14 @@ if (isset ($_GET['cari'])){
 
     </tr>
     <?php $i = 1 ; ?>
-    <?php foreach ($buku as $b): ?>
+    <?php foreach ($judul_buku as $b): ?>
     <tr>
         <td><?= $i ?></td>
         <td> 
-            <a href="">Ubah</a>
-            <a href="hapus.php?id=<? $buku['id']?>"onclick="return confirm ('hapus data??')">Hapus</a>
+            <a href="ubah.php?id=<?= $b['ID']?>">Ubah</a>
+            <a href="hapus.php?id=<? $b['ID']?>"onclick="return confirm ('hapus data??')">Hapus</a>
         </td>
-        <td><img src="asset/img/<?php echo $b['cover_buku'];?>" alt=""></td>
+        <td><img src="../asset/img/<?php echo $b['cover_buku'];?>" alt=""></td>
         <td><?php echo $b['Judul_buku'];?></td>
         <td><?php echo $b['Penulis'];?></td>
         <td><?php echo $b['Penerbit'];?></td>
