@@ -1,0 +1,57 @@
+body{
+    background-image: url('../../asset/img/kuy.png');
+    text-align: center;
+}
+.container{
+    padding:50px 0px 50px 400px;
+    font-size: 20px;
+   
+}
+table{
+   
+    background-color: rgba(142, 170, 230, 0.897);
+}
+.ubah{
+    background-color: aqua;
+    padding: 10px;
+    margin-right: 20px;
+    color: black;
+    border-radius: 25%;
+}
+.hapus{
+    background-color: rgb(206, 8, 8);
+    padding: 10px;
+    color: white;
+    border-radius: 25%;
+}
+form{
+    margin-top: 35px;
+}
+.add{
+    background-color: wheat;
+    padding: 10px 10px 10px 0px;
+    margin: 10px 900px 0px 900px;
+    border-radius: 25px;
+    background-color: rgb(244, 247, 63);
+    
+}
+hr{
+    padding-top:40px ;
+    background-color: rgb(105, 84, 133);
+}
+button{
+    padding: 5px 25px;
+    border-radius: 25px;
+    background-color: rgb(6, 69, 243);
+    color: white;
+    font-size: 15px;
+   
+}
+.logout{
+    background-color: wheat;
+    padding: 10px 10px 10px 0px;
+    margin: 10px 900px 100px 900px;
+    border-radius: 25px;
+    background-color: rgb(244, 247, 63);
+    font-size: 15px;
+}
