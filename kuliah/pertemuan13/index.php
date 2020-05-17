@@ -47,6 +47,7 @@ if (isset($_POST['cari'])) {
           <a href="tambah.php">
             <button class="tambah btn btn-outline-info">Tambah Data</button>
           </a>
+          <a class="admin" href="../index.html"><button class="btn btn-outline-light my-2 my-sm-0"> kembali</button></a>
         </div>
       </div>
     </div>

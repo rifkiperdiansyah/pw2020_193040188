@@ -1,5 +1,0 @@
----
-deployment:
-    taks:
-    -export DEPLOYPATH=/home3/pw19188/public_html/
-    -/bin/cp -R * $DEPLOYPATH

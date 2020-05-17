@@ -49,6 +49,7 @@ if (isset ($_GET['search'])){
   </form>
   </div>
   <a class="admin" href="php/login.php"><button class="btn btn-outline-light my-2 my-sm-0"> masuk ke halaman admin</button></a>
+  <a class="admin" href="../index.html"><button class="btn btn-outline-light my-2 my-sm-0"> kembali</button></a>
 </nav>
 
 
