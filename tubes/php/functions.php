@@ -1,13 +1,15 @@
 <?php 
 function koneksi()
 {
-$conn =  mysqli_connect('localhost','root','',)or die ("koneksi ke Db gagal");
-mysqli_select_db($conn, "tubes_193040188") or die ("database salah");
- 
-return $conn;
+  $conn =  mysqli_connect('localhost','root','',)or die ("koneksi ke Db gagal");
+  mysqli_select_db($conn, "tubes_193040188") or die ("database salah");
+   
+  return $conn;
+  
+  
+  }
 
 
-}
 function query($sql)
 {
     $conn = koneksi();
