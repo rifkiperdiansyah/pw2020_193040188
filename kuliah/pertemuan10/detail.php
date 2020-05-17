@@ -1,9 +1,16 @@
-<?php 
-require 'functions.php';
+<?php
 
-$id  = $_GET['id'];
 
-$mahasiswa = query ("SELECT * FROM mahasiswa WHERE id = $id")
+if(!isset ($_GET['id'])){
+    header ("location: ../index.php");
+    exit;
+}
+
+require 'functions.php ';
+
+$id = $_GET ['id'];
+
+$mahasiswa = query ("SELECT *FROM mahasiswa WHERE id = $id" );
 ?>
 
 <!DOCTYPE html>

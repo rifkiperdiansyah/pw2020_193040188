@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 
 require 'functions.php'; 
 $mahasiswa = query("SELECT * FROM mahasiswa");

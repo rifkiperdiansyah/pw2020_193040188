@@ -6,6 +6,8 @@ if(!isset($_SESSION["username"])){
 }
 
 require 'functions.php';
+
+
 if (isset ($_GET['cari'])){
     $keyword = $_GET['keyword'];
     $buku = query("SELECT * FROM buku WHERE

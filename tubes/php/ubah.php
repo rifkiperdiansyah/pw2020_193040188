@@ -9,7 +9,7 @@ if(!isset($_SESSION["username"])){
 require 'functions.php';
 
 
-$id = $_GET["id"];
+$id = $_GET['id'];
 
 
 $buku= query("SELECT* FROM buku WHERE id = $id")[0];
@@ -19,12 +19,13 @@ if(isset($_POST['ubah'])){
     if( ubah ($_POST)>0){
         echo "<script>
         alert('data berhasil Ubah');
-        document.location.href='admin.php'</script>";
+        document.location.href='admin.php';
+        </script>";
     }
     else{
         echo "<script>
         alert('data gagal di Ubah');
-        document.location.href='admin.php'</script>";
+        document.location.href='admin.php';</script>";
     }
 }
 ?>

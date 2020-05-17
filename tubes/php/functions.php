@@ -2,7 +2,7 @@
 function koneksi()
 {
 $conn =  mysqli_connect('localhost','root','',)or die ("koneksi ke Db gagal");
-mysqli_select_db($conn, "JudulBuku") or die ("database salah");
+mysqli_select_db($conn, "tubes_193040188") or die ("database salah");
  
 return $conn;
 
@@ -65,7 +65,7 @@ function ubah($data){
 
 
 
-$id = $data["id"];
+$id = $data['id'];
 $cover_buku = htmlspecialchars( $data["cover_buku"]);
 $Judul_Buku = htmlspecialchars($data["Judul_Buku"]);
 $Penulis = htmlspecialchars($data["Penulis"]);
@@ -81,7 +81,7 @@ $Tebal_buku = htmlspecialchars($data["Tebal_buku"]);
               Penulis = '$Penulis',
               Pernerbit = '$Penerbit',
               Tebal_buku = '$Tebal_buku',
-              WHERE id =  $id ";
+              WHERE id =  '$id' ";
 
       mysqli_query($conn,$query);
 
