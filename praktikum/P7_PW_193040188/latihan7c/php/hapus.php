@@ -1,4 +1,5 @@
 <?php 
+session_start();    
 if(!isset($_SESSION["username"])){
     header("location: login.php");
     exit;
@@ -6,16 +7,17 @@ if(!isset($_SESSION["username"])){
 
 require 'functions.php';
 
-$id = $_GET ['id'];
+$id = $_GET ["id"];
+
 if (hapus($id) > 0){
-    echo "<script>
-    alert.('data berhasil di hapus');
+    $conn = koneksi();
+    echo " <script>
+    alert('data berhasil di hapus ');
     document.location.href = 'admin.php';
-    </scipt>";
-}else{
-    echo "<script>
-    alert.('data gagal di hapus');
+    </script> ";
+    }else{
+    echo " <script>
+    alert('data gagal dihapus ');
     document.location.href = 'admin.php';
-    </scipt>";
-}
-?>
+    </script> ";
+    }

@@ -1,13 +1,15 @@
 <?php 
 function koneksi()
 {
-$conn =  mysqli_connect('localhost','root','',)or die ("koneksi ke Db gagal");
-mysqli_select_db($conn, "buku") or die ("database salah");
- 
-return $conn;
+  $conn =  mysqli_connect('localhost','root','',)or die ("koneksi ke Db gagal");
+  mysqli_select_db($conn, "tubes_193040188") or die ("database salah");
+   
+  return $conn;
+  
+  
+  }
 
 
-}
 function query($sql)
 {
     $conn = koneksi();
@@ -21,51 +23,67 @@ return $rows;
 }
 
 function tambah($data){
-  
-    $conn = koneksi();
-  
+  $conn = koneksi();
+
+
   $cover_buku = htmlspecialchars( $data['cover_buku']);
-  $Judul_buku = htmlspecialchars( $data['Judul_buku']);
-  $Penulis = htmlspecialchars( $data['Penulis']);
-  $Penerbit = htmlspecialchars( $data['Penerbit']);
-  $Tebal_buku = htmlspecialchars( $data['Tebal_buku']);
-    $query ="INSERT INTO
-              judul_buku
-              VALUES
-              ('','$cover_buku','$Judul_buku','$Penulis','$Penerbit','$Tebal_buku')
-              ";
-      mysqli_query($conn,$query);
+$Judul_Buku = htmlspecialchars($data['Judul_Buku']);
+$Penulis = htmlspecialchars($data['Penulis']);
+$Penerbit = htmlspecialchars($data['Penerbit']);
+$Tebal_buku = htmlspecialchars($data['Tebal_buku']);
+  $query ="INSERT INTO
+            buku
+            VALUES
+            ('','$cover_buku','$Judul_Buku','$Penulis','$Penerbit','$Tebal_buku')";
+    mysqli_query($conn,$query);
+
+    return mysqli_affected_rows($conn);
+
+}
   
-      echo mysqli_error($conn);
-      return mysqli_affected_rows($conn);
-  }
-  function hapus ($id){
+   
+
+  
+     
+  
+
+
+  function hapus ($id)
+  {
     $conn = koneksi();
 
-    mysqli_query($conn,"DELETE FROM judul_buku WHERE id = $id");
+    mysqli_query($conn,"DELETE FROM buku WHERE id = $id");
 
     return mysqli_affected_rows($conn);
   }
 
+
+
+
+  
 function ubah($data){
   $conn = koneksi();
-  $id = htmlspecialchars($data['id']);
-  $cover_buku = htmlspecialchars($data['cover_buku']);
-  $Judul_buku= htmlspecialchars($data['Judul_buku']);
-  $Penulis = htmlspecialchars($data['Penulis']);
-  $Penerbit = htmlspecialchars($data['Penerbit']);
-  $Tebal_buku = htmlspecialchars($data['Tebal_buku']);
+
+
+
+
+$id = $data['id'];
+$cover_buku = htmlspecialchars( $data["cover_buku"]);
+$Judul_Buku = htmlspecialchars($data["Judul_Buku"]);
+$Penulis = htmlspecialchars($data["Penulis"]);
+$Penerbit = htmlspecialchars($data["Penerbit"]);
+$Tebal_buku = htmlspecialchars($data["Tebal_buku"]);
   
 
-  $query = "UPDATE judul_buku2 
+  $query = "UPDATE buku
               SET
         
               cover_buku = '$cover_buku',
-              Judul_buku = '$Judul_buku',
+              Judul_Buku = '$Judul_Buku',
               Penulis = '$Penulis',
               Pernerbit = '$Penerbit',
               Tebal_buku = '$Tebal_buku',
-              WHERE ID =  '$id'";
+              WHERE id =  '$id' ";
 
       mysqli_query($conn,$query);
 
@@ -75,25 +93,28 @@ function ubah($data){
 
 function registrasi($data)
 {
-  $conn = koneksi();
-  $username = strtolower (stripcslashes($data["username"]));
-  $password = mysqli_real_escape_string($conn,$data["password"]);
+    $conn = koneksi();
+    $username = strtolower(stripcslashes($data["username"]));
+    $password = mysqli_real_escape_string($conn, $data["password"]);
 
-  $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username' ");
-  if (mysqli_fetch_assoc($result)){
-    echo "<script>
-    alert('username sudah digunakan')</script>";
-    return false;
-  }
+    // cek username sudah ada atau belum
+    $result = mysqli_query($conn, "SELECT username FROM user WHERE username = '$username' ");
+    if (mysqli_fetch_assoc($result)) {
+        echo "<script>
+            alert('username sudah digunakan');
+        </script>";
+        return false;
+    }
 
-  $password = password_hash($password, PASSWORD_DEFAULT);
+    // enkripsi password
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
+    // tambah user baru
+    $query_tambah = "INSERT INTO user VALUES('','$username','$password')";
+    mysqli_query($conn, $query_tambah);
 
-  $query_tambah = "INSERT INTO user VALUES ('','$username','$password')";
-  mysqli_query($conn, $query_tambah);
-
-  return mysqli_affected_rows($conn);
+    return mysqli_affected_rows($conn);
 }
 
 
-?>
+

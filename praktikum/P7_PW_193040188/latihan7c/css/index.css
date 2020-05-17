@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "Ation Man";
+    src: url('asset/font/Action Man.ttf');
+  }
+  
+.navbar{
+    background-color: rgb(6, 6, 187);
+   
+}
+
+.navbar-brand{
+   font-family: 'Action Man';
+    color: white;
+    text-shadow: 3px 1px 1px rgba(0, 0, 0, 1);
+    font-size: 32px;
+    margin-left: 100px;
+}
+form{
+    margin-left: 800px;
+    
+}
+.navbar a{
+    margin-left: 100px;
+}
+.card{
+    background-color: skyblue;
+}
+.judul{
+    margin: -100px 0px 10px 170px;
+}
+.bt {
+    margin: 0px 0px 10px 170px;
+    
+    background-color: #fff;
+}
+.admin{
+    padding-left: 50px; 
+}
+
+

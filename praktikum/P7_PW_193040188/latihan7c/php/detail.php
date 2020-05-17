@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+
 if(!isset ($_GET['id'])){
     header ("location: ../index.php");
     exit;
@@ -8,7 +10,7 @@ require 'functions.php ';
 
 $id = $_GET ['id'];
 
-$judul_buku = query ("SELECT *FROM judul_buku WHERE id = $id" )[0];
+$judul_buku = query ("SELECT *FROM buku WHERE id = $id" )[0];
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +20,7 @@ $judul_buku = query ("SELECT *FROM judul_buku WHERE id = $id" )[0];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Detail</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/css/detail.css">
 
 </head>
 <body>
@@ -27,12 +29,13 @@ $judul_buku = query ("SELECT *FROM judul_buku WHERE id = $id" )[0];
    
 
     <div class="keterangan">
+        <ul>
 
-    <p><?= $judul_buku['Judul_buku']; ?></p>
-    <p><?= $judul_buku['Penulis']; ?></p>
-    <p><?= $judul_buku['Penerbit']; ?></p>
-    <p><?= $judul_buku['Tebal_buku']; ?></p>
-  
+    <p>Judul Buku :<?= $judul_buku['Judul_Buku']; ?></p>
+    <p>Penulis :<?= $judul_buku['Penulis']; ?></p>
+    <p>Penerbit :<?= $judul_buku['Penerbit']; ?></p>
+    <p>Tebal Halaman :<?= $judul_buku['Tebal_buku']; ?></p>
+    </ul>
     </div>
     
     <button class="kembali"><a href=" ../index.php">back</a> </button>

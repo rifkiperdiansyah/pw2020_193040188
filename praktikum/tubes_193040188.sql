@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Bulan Mei 2020 pada 08.57
+-- Waktu pembuatan: 17 Bulan Mei 2020 pada 08.34
 -- Versi server: 10.4.6-MariaDB
 -- Versi PHP: 7.3.9
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `judulbuku`
+-- Database: `tubes_193040188`
 --
 
 -- --------------------------------------------------------
