@@ -20,7 +20,7 @@ $judul_buku = query ("SELECT *FROM buku WHERE id = $id" )[0];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Detail</title>
-    <link rel="stylesheet" href="../css/css/detail.css">
+    <link rel="stylesheet" href="../css/detail.css">
 
 </head>
 <body>
